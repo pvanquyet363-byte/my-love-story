@@ -1474,196 +1474,224 @@
         }
       }
 
-      /* ... CÁC PHẦN CÀNH ĐÀO CỦA BẠN ... */
-      .cherry-branch-container {
-        position: fixed;
-        top: -20px;
-        width: 48%;
-        max-width: 420px;
-        z-index: 50 !important;
-        pointer-events: none;
-        overflow: visible;
-      }
-
-      .branch-left {
-        left: -8%;
-      }
-
-      .branch-right {
-        right: -8%;
-        transform: scaleX(-1);
-      }
-
-      .la-dao {
-        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-        animation: laSway 6s ease-in-out infinite alternate;
-      }
-
-      @keyframes laSway {
-        from {
-          transform: rotate(-4deg);
-        }
-
-        to {
-          transform: rotate(6deg);
-        }
-      }
-
-      .hoa-dao {
-        filter: drop-shadow(0 2px 6px rgba(255, 105, 180, 0.6));
-        animation: hoaNo 4s ease-in-out infinite;
-      }
-
-      @keyframes hoaNo {
-
-        0%,
-        100% {
-          transform: scale(0.95) rotate(0deg);
-          opacity: 0.9;
-        }
-
-        50% {
-          transform: scale(1.15) rotate(2deg);
-          opacity: 1;
-        }
-      }
-
-      .sway {
-        transform-origin: 0% 0%;
-        animation: sway 6s ease-in-out infinite alternate;
-      }
-
-      @keyframes sway {
-        0% {
-          transform: rotate(-1deg) skewX(0deg);
-        }
-
-        100% {
-          transform: rotate(4deg) skewX(1deg);
-        }
-      }
-
       /* Hiệu ứng lồng đèn nâng cao */
-    .lantern {
-      position: absolute;
-      width: 45px;
-      height: 40px;
-      background: #ff1744;
-      border-radius: 40% 40% 35% 35%;
-      /* Hiệu ứng tỏa sáng rực rỡ */
-      box-shadow: 0 0 40px rgba(255, 23, 68, 0.6), 
-                  inset 0 0 20px rgba(0, 0, 0, 0.3);
-      transform-origin: top center;
-      animation: lanternSway 3s ease-in-out infinite alternate,
-                 lanternGlow 2s ease-in-out infinite alternate; /* Thêm hiệu ứng nhấp nháy */
-    }
+      .lantern {
+        position: absolute;
+        width: 45px;
+        height: 40px;
+        background: #ff1744;
+        border-radius: 40% 40% 35% 35%;
+        /* Hiệu ứng tỏa sáng rực rỡ */
+        box-shadow: 0 0 40px rgba(255, 23, 68, 0.6),
+          inset 0 0 20px rgba(0, 0, 0, 0.3);
+        transform-origin: top center;
+        animation: lanternSway 3s ease-in-out infinite alternate,
+          lanternGlow 2s ease-in-out infinite alternate;
+        /* Thêm hiệu ứng nhấp nháy */
+      }
 
-    /* Hiệu ứng nhấp nháy ánh nến bên trong */
-    @keyframes lanternGlow {
-      0% { filter: brightness(1); box-shadow: 0 0 30px rgba(255, 23, 68, 0.5); }
-      100% { filter: brightness(1.3); box-shadow: 0 0 50px rgba(255, 23, 68, 0.8); }
-    }
+      /* Hiệu ứng nhấp nháy ánh nến bên trong */
+      @keyframes lanternGlow {
+        0% {
+          filter: brightness(1);
+          box-shadow: 0 0 30px rgba(255, 23, 68, 0.5);
+        }
 
-    /* Đuôi lồng đèn (Tua rua) có hiệu ứng mềm hơn */
-    .lantern::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 5px;
-      height: 18px;
-      background: linear-gradient(to bottom, #ffd700, #ff8c00);
-      border-radius: 2px;
-      animation: tasselSway 3s ease-in-out infinite alternate;
-      transform-origin: top center;
-    }
+        100% {
+          filter: brightness(1.3);
+          box-shadow: 0 0 50px rgba(255, 23, 68, 0.8);
+        }
+      }
 
-    /* Hiệu ứng đung đưa riêng cho đuôi */
-    @keyframes tasselSway {
-      0% { transform: translateX(-50%) rotate(-10deg); }
-      100% { transform: translateX(-50%) rotate(10deg); }
-    }
+      /* Đuôi lồng đèn (Tua rua) có hiệu ứng mềm hơn */
+      .lantern::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5px;
+        height: 18px;
+        background: linear-gradient(to bottom, #ffd700, #ff8c00);
+        border-radius: 2px;
+        animation: tasselSway 3s ease-in-out infinite alternate;
+        transform-origin: top center;
+      }
 
-    /* Thêm các vòng chỉ vàng trang trí trên thân lồng đèn */
-    .lantern-line {
-      position: absolute;
-      top: 0;
-      left: 15%;
-      width: 70%;
-      height: 100%;
-      border-left: 1px solid rgba(255, 215, 0, 0.3);
-      border-right: 1px solid rgba(255, 215, 0, 0.3);
-      border-radius: 50%;
-    }
-    /* --- RESPONSIVE CHO MOBILE --- */
-@media (max-width: 600px) {
-  /* 1. Thu nhỏ lồng đèn */
-  .lantern {
-    width: 35px;
-    height: 32px;
+      /* Hiệu ứng đung đưa riêng cho đuôi */
+      @keyframes tasselSway {
+        0% {
+          transform: translateX(-50%) rotate(-10deg);
+        }
+
+        100% {
+          transform: translateX(-50%) rotate(10deg);
+        }
+      }
+
+      /* Thêm các vòng chỉ vàng trang trí trên thân lồng đèn */
+      .lantern-line {
+        position: absolute;
+        top: 0;
+        left: 15%;
+        width: 70%;
+        height: 100%;
+        border-left: 1px solid rgba(255, 215, 0, 0.3);
+        border-right: 1px solid rgba(255, 215, 0, 0.3);
+        border-radius: 50%;
+      }
+
+      /* --- RESPONSIVE CHO MOBILE --- */
+      @media (max-width: 600px) {
+
+        /* 1. Thu nhỏ lồng đèn */
+        .lantern {
+          width: 35px;
+          height: 32px;
+        }
+
+        .lantern::before {
+          height: 30px;
+          top: -30px;
+        }
+
+        .lan-1 {
+          left: 5%;
+        }
+
+        .lan-2 {
+          left: 20%;
+        }
+
+        .lan-3 {
+          right: 20%;
+        }
+
+        .lan-4 {
+          right: 5%;
+        }
+
+        /* 2. Thu nhỏ phong bì 3D */
+        .envelope-3d {
+          width: 280px;
+          height: 190px;
+        }
+
+        /* 3. Chỉnh lại miếng thư nhô ra (Peek) */
+        .letter-peek {
+          width: 200px;
+          padding: 15px;
+          bottom: -20px;
+        }
+
+        .letter-peek-text {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        /* 4. Chỉnh lại cành đào để không chiếm chỗ */
+        .cherry-branch-container {
+          width: 180px;
+          top: -10px;
+        }
+
+        .branch-left {
+          left: -15%;
+        }
+
+        .branch-right {
+          right: -15%;
+        }
+
+        /* 5. Chỉnh lại chữ trong thư chính */
+        .paper {
+          padding: 30px 20px;
+          width: 95%;
+          /* Chiếm gần hết chiều ngang */
+        }
+
+        #text {
+          font-size: 18px;
+          /* Cỡ chữ vừa vặn màn hình dọc */
+          line-height: 1.8;
+          min-height: 250px;
+        }
+
+        .paper-title {
+          font-size: 22px;
+        }
+
+        .signature {
+          font-size: 28px;
+          margin-top: 20px;
+        }
+      }
+
+      /* Fix cho màn hình cực nhỏ hoặc xoay ngang */
+      @media (max-height: 500px) {
+        .envelope-wrapper {
+          transform: scale(0.7);
+          margin-bottom: 20px;
+        }
+
+        .lantern-holder {
+          display: none;
+          /* Ẩn lồng đèn khi màn hình quá thấp để tránh rối */
+        }
+      }
+      /* Hiệu ứng đung đưa */
+      @keyframes sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(1.5deg); }
   }
-  .lantern::before {
-    height: 30px;
-    top: -30px;
-  }
-  .lan-1 { left: 5%; }
-  .lan-2 { left: 20%; }
-  .lan-3 { right: 20%; }
-  .lan-4 { right: 5%; }
 
-  /* 2. Thu nhỏ phong bì 3D */
-  .envelope-3d {
-    width: 280px;
-    height: 190px;
-  }
-  
-  /* 3. Chỉnh lại miếng thư nhô ra (Peek) */
-  .letter-peek {
-    width: 200px;
-    padding: 15px;
-    bottom: -20px;
-  }
-  .letter-peek-text {
-    font-size: 14px;
-    line-height: 1.5;
+  .hoa-dao.sway {
+    transform-origin: center;
+    animation: sway 5s ease-in-out infinite;
   }
 
-  /* 4. Chỉnh lại cành đào để không chiếm chỗ */
   .cherry-branch-container {
-    width: 180px;
-    top: -10px;
+    width: 100%;
+    max-width: 900px;
+    margin: 10px auto;
   }
-  .branch-left { left: -15%; }
-  .branch-right { right: -15%; }
 
-  /* 5. Chỉnh lại chữ trong thư chính */
-  .paper {
-    padding: 30px 20px;
-    width: 95%; /* Chiếm gần hết chiều ngang */
+  .branch-right svg {
+    transform: scaleX(-1);
   }
-  #text {
-    font-size: 18px; /* Cỡ chữ vừa vặn màn hình dọc */
-    line-height: 1.8;
-    min-height: 250px;
-  }
-  .paper-title {
-    font-size: 22px;
-  }
-  .signature {
-    font-size: 28px;
-    margin-top: 20px;
-  }
+  /* HIỆU ỨNG CÁNH HOA ĐÀO RỤNG */
+.falling-petal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3; /* Trên nền nhưng dưới overlay nếu cần */
+  overflow: hidden;
 }
 
-/* Fix cho màn hình cực nhỏ hoặc xoay ngang */
-@media (max-height: 500px) {
-  .envelope-wrapper {
-    transform: scale(0.7);
-    margin-bottom: 20px;
+.falling-petal {
+  position: absolute;
+  top: -50px;
+  animation: fall linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
   }
-  .lantern-holder {
-    display: none; /* Ẩn lồng đèn khi màn hình quá thấp để tránh rối */
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) translateX(var(--drift)) rotate(var(--rotate));
+    opacity: 0;
   }
 }
     </style>
@@ -1676,87 +1704,109 @@
       <div class="lantern lan-3"></div>
       <div class="lantern lan-4"></div>
     </div>
-    <!-- CÀNH ĐÀO TRÁI -->
-    <div class="cherry-branch-container branch-left sway" id="branch-left">
-      <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg"
-        style="overflow: visible; width: 100%; height: auto;">
-        <defs>
-          <radialGradient id="hoaGradLeft">
-            <stop offset="0%" stop-color="#fff5f7" />
-            <stop offset="50%" stop-color="#ff9bb8" />
-            <stop offset="100%" stop-color="#ff477e" />
-          </radialGradient>
-        </defs>
+    <div class="cherry-branch-container branch-left">
+  <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" class="hoa-dao sway">
+    <defs>
+      <linearGradient id="branchThin" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#4E342E"/>
+        <stop offset="50%" stop-color="#5D4037"/>
+        <stop offset="100%" stop-color="#6D4C41"/>
+      </linearGradient>
+      <linearGradient id="branchHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="rgba(255,255,255,0.2)"/>
+        <stop offset="50%" stop-color="transparent"/>
+      </linearGradient>
+    </defs>
 
-        <path d="M30,60 Q120,50 180,120 T360,180" stroke="#3a1f1d" stroke-width="10" fill="none"
-          stroke-linecap="round" />
-        <path d="M120,90 Q160,70 200,85" stroke="#3a1f1d" stroke-width="6" fill="none" />
-        <path d="M220,130 Q260,115 300,125" stroke="#3a1f1d" stroke-width="5" fill="none" />
+    <path d="M50,150 Q250,80 450,150 Q650,220 850,150" stroke="url(#branchThin)" stroke-width="18" fill="none" stroke-linecap="round"/>
+    <path d="M200,140 Q160,100 180,80" stroke="#5D4037" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M350,150 Q310,190 290,210" stroke="#5D4037" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M550,150 Q590,110 570,90" stroke="#5D4037" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M700,155 Q740,195 720,215" stroke="#5D4037" stroke-width="9" fill="none" stroke-linecap="round"/>
 
-        <!-- LÁ TO HƠN -->
-        <g class="la-dao" transform="translate(100,90) rotate(-25)">
-          <ellipse cx="0" cy="0" rx="18" ry="42" fill="#1e6b1e" />
-          <ellipse cx="0" cy="0" rx="12" ry="30" fill="#32cd32" opacity="0.8" />
-        </g>
-        <g class="la-dao" transform="translate(190,140) rotate(35)">
-          <ellipse cx="0" cy="0" rx="20" ry="45" fill="#1e6b1e" />
-        </g>
-        <g class="la-dao" transform="translate(300,170) rotate(-20)">
-          <ellipse cx="0" cy="0" rx="16" ry="38" fill="#32cd32" />
-        </g>
+    <g class="hoa-dao-group">
+      <g transform="translate(150,120)">
+        <circle cx="0" cy="0" r="15" fill="#FF91A4"/><circle cx="0" cy="0" r="22" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-13" cy="-13" r="12" fill="#FFB6C1"/><circle cx="13" cy="-13" r="12" fill="#FFB6C1"/>
+        <circle cx="-13" cy="13" r="12" fill="#FFB6C1"/><circle cx="13" cy="13" r="12" fill="#FFB6C1"/><circle cx="0" cy="0" r="8" fill="#FF1493"/>
+      </g>
+      <g transform="translate(300,110)">
+        <circle cx="0" cy="0" r="16" fill="#FF91A4"/><circle cx="0" cy="0" r="24" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-14" cy="-14" r="13" fill="#FFB6C1"/><circle cx="14" cy="-14" r="13" fill="#FFB6C1"/>
+        <circle cx="-14" cy="14" r="13" fill="#FFB6C1"/><circle cx="14" cy="14" r="13" fill="#FFB6C1"/><circle cx="0" cy="0" r="9" fill="#FF1493"/>
+      </g>
+      <g transform="translate(480,160)">
+        <circle cx="0" cy="0" r="14" fill="#FF91A4"/><circle cx="0" cy="0" r="20" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-12" cy="-12" r="11" fill="#FFB6C1"/><circle cx="12" cy="-12" r="11" fill="#FFB6C1"/>
+        <circle cx="-12" cy="12" r="11" fill="#FFB6C1"/><circle cx="12" cy="12" r="11" fill="#FFB6C1"/><circle cx="0" cy="0" r="7" fill="#FF1493"/>
+      </g>
+      <g transform="translate(650,130)">
+        <circle cx="0" cy="0" r="15" fill="#FF91A4"/><circle cx="0" cy="0" r="22" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-13" cy="-13" r="12" fill="#FFB6C1"/><circle cx="13" cy="-13" r="12" fill="#FFB6C1"/>
+        <circle cx="-13" cy="13" r="12" fill="#FFB6C1"/><circle cx="13" cy="13" r="12" fill="#FFB6C1"/><circle cx="0" cy="0" r="8" fill="#FF1493"/>
+      </g>
+      <g transform="translate(780,145)">
+        <circle cx="0" cy="0" r="13" fill="#FF91A4"/><circle cx="0" cy="0" r="19" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-11" cy="-11" r="10" fill="#FFB6C1"/><circle cx="11" cy="-11" r="10" fill="#FFB6C1"/>
+        <circle cx="-11" cy="11" r="10" fill="#FFB6C1"/><circle cx="11" cy="11" r="10" fill="#FFB6C1"/><circle cx="0" cy="0" r="6" fill="#FF1493"/>
+      </g>
+    </g>
 
-        <!-- HOA TO RÕ HƠN -->
-        <g class="hoa-dao" transform="translate(120,100)">
-          <circle cx="0" cy="0" r="22" fill="url(#hoaGradLeft)" />
-          <circle cx="0" cy="0" r="13" fill="#ff1493" />
-          <circle cx="0" cy="0" r="7" fill="#ff69b4" />
-        </g>
-        <g class="hoa-dao" transform="translate(220,150)">
-          <circle cx="0" cy="0" r="24" fill="url(#hoaGradLeft)" />
-          <circle cx="0" cy="0" r="14" fill="#ff1493" />
-        </g>
-        <g class="hoa-dao" transform="translate(320,180)">
-          <circle cx="0" cy="0" r="23" fill="url(#hoaGradLeft)" />
-          <circle cx="0" cy="0" r="13" fill="#ff69b4" />
-        </g>
-      </svg>
-    </div>
+    <g class="la-dao">
+      <ellipse cx="250" cy="170" rx="22" ry="50" fill="#1B5E20" transform="rotate(-45 250 170)"/>
+      <ellipse cx="420" cy="120" rx="20" ry="48" fill="#1B5E20" transform="rotate(40 420 120)"/>
+      <ellipse cx="600" cy="180" rx="24" ry="52" fill="#1B5E20" transform="rotate(-60 600 180)"/>
+    </g>
+  </svg>
+</div>
 
-    <!-- CÀNH ĐÀO PHẢI -->
-    <div class="cherry-branch-container branch-right sway" id="branch-right" style="animation-delay: -3s;">
-      <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg"
-        style="overflow: visible; width: 100%; height: auto;">
-        <defs>
-          <radialGradient id="hoaGradRight">
-            <stop offset="0%" stop-color="#fff5f7" />
-            <stop offset="50%" stop-color="#ffaed1" />
-            <stop offset="100%" stop-color="#ff5cb0" />
-          </radialGradient>
-        </defs>
+<div class="cherry-branch-container branch-right">
+  <svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" class="hoa-dao sway">
+    <defs>
+      <linearGradient id="branchThin2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#4E342E"/>
+        <stop offset="50%" stop-color="#5D4037"/>
+        <stop offset="100%" stop-color="#6D4C41"/>
+      </linearGradient>
+    </defs>
 
-        <path d="M30,50 Q120,65 180,120 T360,170" stroke="#3a1f1d" stroke-width="10" fill="none"
-          stroke-linecap="round" />
-        <path d="M140,100 Q180,80 220,95" stroke="#3a1f1d" stroke-width="6" fill="none" />
+    <path d="M50,150 Q250,80 450,150 Q650,220 850,150" stroke="url(#branchThin2)" stroke-width="18" fill="none" stroke-linecap="round"/>
+    <path d="M200,140 Q160,100 180,80" stroke="#5D4037" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M350,150 Q310,190 290,210" stroke="#5D4037" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M550,150 Q590,110 570,90" stroke="#5D4037" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M700,155 Q740,195 720,215" stroke="#5D4037" stroke-width="9" fill="none" stroke-linecap="round"/>
 
-        <!-- LÁ -->
-        <g class="la-dao" transform="translate(140,110) rotate(30)">
-          <ellipse cx="0" cy="0" rx="19" ry="43" fill="#1e6b1e" />
-        </g>
-        <g class="la-dao" transform="translate(260,150) rotate(-25)">
-          <ellipse cx="0" cy="0" rx="18" ry="40" fill="#32cd32" />
-        </g>
+    <g class="hoa-dao-group">
+      <g transform="translate(150,120)">
+        <circle cx="0" cy="0" r="15" fill="#FF91A4"/><circle cx="0" cy="0" r="22" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-13" cy="-13" r="12" fill="#FFB6C1"/><circle cx="13" cy="-13" r="12" fill="#FFB6C1"/><circle cx="-13" cy="13" r="12" fill="#FFB6C1"/><circle cx="13" cy="13" r="12" fill="#FFB6C1"/><circle cx="0" cy="0" r="8" fill="#FF1493"/>
+      </g>
+      <g transform="translate(300,110)">
+        <circle cx="0" cy="0" r="16" fill="#FF91A4"/><circle cx="0" cy="0" r="24" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-14" cy="-14" r="13" fill="#FFB6C1"/><circle cx="14" cy="-14" r="13" fill="#FFB6C1"/><circle cx="-14" cy="14" r="13" fill="#FFB6C1"/><circle cx="14" cy="14" r="13" fill="#FFB6C1"/><circle cx="0" cy="0" r="9" fill="#FF1493"/>
+      </g>
+      <g transform="translate(480,160)">
+        <circle cx="0" cy="0" r="14" fill="#FF91A4"/><circle cx="0" cy="0" r="20" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-12" cy="-12" r="11" fill="#FFB6C1"/><circle cx="12" cy="-12" r="11" fill="#FFB6C1"/><circle cx="-12" cy="12" r="11" fill="#FFB6C1"/><circle cx="12" cy="12" r="11" fill="#FFB6C1"/><circle cx="0" cy="0" r="7" fill="#FF1493"/>
+      </g>
+      <g transform="translate(650,130)">
+        <circle cx="0" cy="0" r="15" fill="#FF91A4"/><circle cx="0" cy="0" r="22" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-13" cy="-13" r="12" fill="#FFB6C1"/><circle cx="13" cy="-13" r="12" fill="#FFB6C1"/><circle cx="-13" cy="13" r="12" fill="#FFB6C1"/><circle cx="13" cy="13" r="12" fill="#FFB6C1"/><circle cx="0" cy="0" r="8" fill="#FF1493"/>
+      </g>
+      <g transform="translate(780,145)">
+        <circle cx="0" cy="0" r="13" fill="#FF91A4"/><circle cx="0" cy="0" r="19" fill="#FF69B4" opacity="0.4"/>
+        <circle cx="-11" cy="-11" r="10" fill="#FFB6C1"/><circle cx="11" cy="-11" r="10" fill="#FFB6C1"/><circle cx="-11" cy="11" r="10" fill="#FFB6C1"/><circle cx="11" cy="11" r="10" fill="#FFB6C1"/><circle cx="0" cy="0" r="6" fill="#FF1493"/>
+      </g>
+    </g>
 
-        <!-- HOA -->
-        <g class="hoa-dao" transform="translate(180,120)">
-          <circle cx="0" cy="0" r="25" fill="url(#hoaGradRight)" />
-          <circle cx="0" cy="0" r="15" fill="#ff1493" />
-        </g>
-        <g class="hoa-dao" transform="translate(300,165)">
-          <circle cx="0" cy="0" r="23" fill="url(#hoaGradRight)" />
-          <circle cx="0" cy="0" r="13" fill="#ff69b4" />
-        </g>
-      </svg>
-    </div>
+    <g class="la-dao">
+      <ellipse cx="250" cy="170" rx="22" ry="50" fill="#1B5E20" transform="rotate(-45 250 170)"/>
+      <ellipse cx="420" cy="120" rx="20" ry="48" fill="#1B5E20" transform="rotate(40 420 120)"/>
+      <ellipse cx="600" cy="180" rx="24" ry="52" fill="#1B5E20" transform="rotate(-60 600 180)"/>
+    </g>
+  </svg>
+</div>
+    
     <canvas id="fireworks"></canvas>
     <!-- CANVAS FOR PARTICLES -->
     <canvas id="particles-canvas"></canvas>
@@ -2055,7 +2105,71 @@ Cầu riêng một chữ "Tình" riêng với người...`;
 
         setTimeout(typeText, 2500);
       });
+      // --- HIỆU ỨNG CÁNH HOA ĐÀO RỤNG ---
+function createFallingPetals() {
+  const container = document.createElement('div');
+  container.className = 'falling-petal-container';
+  document.body.appendChild(container);
 
+  const petalHTML = `
+    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <circle cx="20" cy="20" r="8" fill="#FF91A4"/>
+        <circle cx="20" cy="20" r="12" fill="#FF69B4" opacity="0.6"/>
+        <circle cx="13" cy="13" r="9" fill="#FFB6C1"/>
+        <circle cx="27" cy="13" r="9" fill="#FFB6C1"/>
+        <circle cx="13" cy="27" r="9" fill="#FFB6C1"/>
+        <circle cx="27" cy="27" r="9" fill="#FFB6C1"/>
+        <circle cx="20" cy="20" r="5" fill="#FF1493"/>
+      </g>
+    </svg>`;
+
+  function createPetal() {
+    const petal = document.createElement('div');
+    petal.className = 'falling-petal';
+    petal.innerHTML = petalHTML;
+
+    // Vị trí ngang ngẫu nhiên (ưu tiên gần cành đào)
+    const left = Math.random() * 100 + '%';
+    petal.style.left = left;
+
+    // Thời gian rơi (6-18 giây)
+    const duration = Math.random() * 12 + 6;
+    petal.style.animationDuration = duration + 's';
+
+    // Độ trôi ngang (bay theo gió)
+    const drift = (Math.random() * 200 - 100) + 'px';
+    petal.style.setProperty('--drift', drift);
+
+    // Độ xoay
+    const rotate = Math.random() * 720 + 360 + 'deg';
+    petal.style.setProperty('--rotate', rotate);
+
+    // Kích thước ngẫu nhiên một chút
+    const scale = Math.random() * 0.5 + 0.8;
+    petal.style.transform = `scale(${scale})`;
+
+    container.appendChild(petal);
+
+    // Xóa sau khi rơi xong để không nặng bộ nhớ
+    setTimeout(() => {
+      if (petal.parentNode) petal.parentNode.removeChild(petal);
+    }, duration * 1000 + 1000);
+  }
+
+  // Tạo cánh hoa liên tục
+  setInterval(createPetal, 400); // Cứ 0.4 giây tạo 1 cánh
+
+  // Tạo ban đầu 30 cánh để đẹp ngay
+  for (let i = 0; i < 10; i++) {
+    setTimeout(createPetal, i * 200);
+  }
+}
+
+// Gọi hàm khi trang load xong (sau khi mở thư để đẹp hơn)
+window.addEventListener('load', () => {
+  setTimeout(createFallingPetals, 3000); // Bắt đầu sau 3 giây mở trang
+});
       // --- 5. CÁNH HOA ---
       function createPetal() {
         const types = ['rose', 'lotus', 'mai'];
